@@ -97,7 +97,7 @@ const DashboardDefault = () => {
         {/* <Grid item xs={12} md={7} lg={8}> */}
         <Grid container alignItems="center" justifyContent="space-between">
           <Grid item>
-            <Typography variant="h5">Top Products with Post-Checkout Lick Clicks</Typography>
+            <Typography variant="h5">Top Products with Post-Checkout Link Clicks</Typography>
           </Grid>
           <Grid item>
             <FormControl sx={{ m: 1, minWidth: 120 }}>
