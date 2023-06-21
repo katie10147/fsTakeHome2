@@ -37,7 +37,6 @@ const IncomeAreaChart = ({ slot }) => {
   const monthAxis = [];
 
   const getClicks = async () => {
-
     const url = `http://127.0.0.1:5000/clicks?split=${slot}`;
 
     const response = await fetch(url, {
@@ -58,7 +57,6 @@ const IncomeAreaChart = ({ slot }) => {
   };
 
   const getRevenue = async () => {
-
     const url = `http://127.0.0.1:5000/revenue?split=${slot}`;
     const response = await fetch(url, {
       method: 'GET'
@@ -85,9 +83,7 @@ const IncomeAreaChart = ({ slot }) => {
         categories: slot === 'month' ? monthAxis : weekAxis,
         labels: {
           style: {
-            colors: [
-              secondary,
-            ]
+            colors: [secondary]
           }
         },
         axisBorder: {

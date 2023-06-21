@@ -5,7 +5,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { Box, Link, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 
 function createData(dict) {
-  return { "numClicks": `${dict["count"]}`, "productName": dict["product"], "brandTags": dict["brandTags"], "revenue": Math.round(dict["_col3"]) };
+  return { numClicks: `${dict['count']}`, productName: dict['product'], brandTags: dict['brandTags'], revenue: Math.round(dict['_col3']) };
 }
 
 // ==============================|| ORDER TABLE - HEADER CELL ||============================== //
@@ -22,7 +22,7 @@ const headCells = [
     align: 'left',
     disablePadding: true,
     label: 'Product'
-  },
+  }
 ];
 
 // ==============================|| ORDER TABLE - HEADER ||============================== //
@@ -51,7 +51,6 @@ OrderTableHead.propTypes = {
   orderBy: PropTypes.string
 };
 
-
 // ==============================|| PRODUCT TABLE ||============================== //
 
 export default function ProductsTable({ sortBy }) {
@@ -64,14 +63,12 @@ export default function ProductsTable({ sortBy }) {
     const url = `http://127.0.0.1:5000/product?sortBy=${sortBy}`;
 
     const response = await fetch(url, {
-      method: 'GET',
+      method: 'GET'
     });
-    const jsonData = await response.json(); 
-    var brandInfo = jsonData.map(obj=>
-      createData(obj));
+    const jsonData = await response.json();
+    var brandInfo = jsonData.map((obj) => createData(obj));
     setRows(brandInfo);
-  }
-
+  };
 
   const isSelected = (trackingNo) => selected.indexOf(trackingNo) !== -1;
 
@@ -104,11 +101,10 @@ export default function ProductsTable({ sortBy }) {
         >
           <OrderTableHead order={order} orderBy={orderBy} />
           <TableBody>
-
-              {rows.map((row, index) => {
+            {rows.map((row, index) => {
               const isItemSelected = isSelected(row.numClicks);
-              const labelId = `enhanced-table-checkbox-${index}`; 
-              
+              const labelId = `enhanced-table-checkbox-${index}`;
+
               return (
                 <TableRow
                   hover
